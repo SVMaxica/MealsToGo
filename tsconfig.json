@@ -1,13 +1,34 @@
+// {
+//   "extends": "expo/tsconfig.base",
+//   "compilerOptions": {
+//     "strict": true,
+//     "baseUrl": "./",
+//     "jsx": "react-native",
+//     "typeRoots": ["./node_modules/@types", "./"],
+//     "paths": {
+//       "@/*": ["./*"]
+//     }
+//   },
+//   "include": [
+//     "**/*.ts",
+//     "**/*.tsx",
+//     "styled.d.ts",
+//     ".expo/types/**/*.ts",
+//     "expo-env.d.ts"
+//   ]
+// }
+
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./",
-    "typeRoots": ["./node_modules/@types", "./"],
-    "types": ["styled-components"],
+    "jsx": "react-native",
+    "typeRoots": ["./node_modules/@types"],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
+  "include": ["src/**/*", ".expo/types/**/*.ts", "expo-env.d.ts"],
+  "exclude": ["node_modules", "assets", "app"]
 }
