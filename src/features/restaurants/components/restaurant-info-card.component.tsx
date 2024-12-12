@@ -99,17 +99,18 @@ export const RestaurantInfoCard: React.FC<{ restaurant?: Restaurant }> = ({
             {restaurant.isClosedTemporarily && (
               <Text style={{ color: 'red' }}>CLOSED TEMPORARILY</Text>
             )}
-            <Spacer>
-              {restaurant.isOpenNow && (
-                <SvgXml xml={open} width={20} height={20} />
-              )}
+
+            {restaurant.isOpenNow && (
+              <SvgXml xml={open} width={20} height={20} />
+            )}
+            <Spacer margin={20}>
+              <Text>Innehåll</Text>
             </Spacer>
-            <Spacer>
-              <Image
-                style={{ width: 15, height: 15 }}
-                source={{ uri: restaurant.icon }}
-              />
-            </Spacer>
+
+            <Image
+              style={{ width: 15, height: 15 }}
+              source={{ uri: restaurant.icon }}
+            />
           </SectionEnd>
         </Section>
         <Address>{restaurant.address}</Address>

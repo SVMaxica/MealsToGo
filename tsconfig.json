@@ -1,5 +1,5 @@
 // {
-//   "extends": "expo/tsconfig.base",
+//   "extends": "expo/tsconfig.base", BORTTAGEN
 //   "compilerOptions": {
 //     "strict": true,
 //     "baseUrl": "./",
@@ -21,6 +21,9 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "allowJs": true,
+    "skipLibCheck": true,
+
     "strict": true,
     "baseUrl": "./",
     "jsx": "react-native",
