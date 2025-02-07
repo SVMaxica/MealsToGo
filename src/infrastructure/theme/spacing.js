@@ -1,6 +1,6 @@
 export const spacing = {
-  sm: "8px",
-  md: "16px",
-  lg: "32px",
-  xl: "64px",
-}
+  small: "4px",
+  medium: "8px",
+  large: "16px",
+  xl: "32px",
+};

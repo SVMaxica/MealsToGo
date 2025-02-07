@@ -5,6 +5,7 @@ const CardContainer = styled(View)`
   background-color: ${({ theme }) => theme.colors.bg.primary};
   border-radius: 10px;
   padding: 16px;
+  margin: 8px;
 `
 
 const shadowStyles = StyleSheet.create({
