@@ -13,7 +13,7 @@ export default function Index() {
       }}
     >
       <Button
-        title="View Restaurants"
+        title="View fantastic Restaurants"
         onPress={() => router.push('/restaurants')}
       />
     </View>
