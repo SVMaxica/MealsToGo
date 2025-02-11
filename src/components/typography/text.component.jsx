@@ -37,7 +37,8 @@ const variantStyles = {
   title: (theme) => `
     font-size: ${theme.fontSizes.body}; 
     font-family: ${theme.fonts.heading};
-    font-weight: ${theme.fontWeights.bold};
+    font-weight: ${theme.fontWeights.medium};
+    margin-top: ${theme.spacing.large};
   `,
 }
 

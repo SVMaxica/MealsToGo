@@ -15,8 +15,6 @@ export const RestaurantInfo = ({ restaurant }) => {
     isClosedTemporarily = false,
   } = restaurant
 
-  console.log(isClosedTemporarily)
-
   const imageSource = photos.length > 0 ? photos[0] : defaultImage
   const ratingArray = Array.from({ length: Math.floor(rating) })
 
@@ -27,7 +25,7 @@ export const RestaurantInfo = ({ restaurant }) => {
         style={{ width: '100%', height: 150, borderRadius: 10 }}
       />
 
-      <Spacer variant="medium" />
+      <Spacer variant="large" />
       <Text variant="title">{name}</Text>
 
       <Spacer variant="small" />
