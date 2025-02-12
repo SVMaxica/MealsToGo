@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { FlatList } from 'react-native'
+import React, { useState, useContext, useEffect } from 'react'
+import { FlatList, ActivityIndicator } from 'react-native'
 import { Searchbar } from 'react-native-paper'
 import styled from 'styled-components/native'
 import { RestaurantInfo } from '../components/restaurant-info.component'
 import { Spacer } from '../../../components/spacer/spacer.component'
-import { restaurantsData } from '../../../utils/mock/restaurantsData'
+import { RestaurantsContext } from '../../../services/restaurants/restaurants.context'
 
 const SafeArea = styled.SafeAreaView`
   flex: 1;
@@ -29,17 +29,40 @@ const StyledSearchbar = styled(Searchbar)`
 `
 
 const RestaurantScreen = () => {
-  const [searchQuery, setSearchQuery] = useState('') // Hantera söksträngen
-  const [filteredData, setFilteredData] = useState(restaurantsData) // Hantera filtrerad data
+  const { restaurants, isLoading } = useContext(RestaurantsContext) // ✅ Hämta restauranger från context
+
+  const [searchQuery, setSearchQuery] = useState('')
+  const [filteredData, setFilteredData] = useState(restaurants) // ✅ Använd context-datan
+
+  useEffect(() => {
+    setFilteredData(restaurants) // Uppdatera när nya restauranger laddas
+  }, [restaurants])
 
   const onSearchChange = (query) => {
     setSearchQuery(query)
 
     // Filtrera restauranger baserat på söksträngen
-    const filtered = restaurantsData.filter((restaurant) =>
+    const filtered = restaurants.filter((restaurant) =>
       restaurant.name.toLowerCase().includes(query.toLowerCase())
     )
     setFilteredData(filtered)
+  }
+
+  useEffect(() => {}, [restaurants])
+
+  if (isLoading) {
+    return (
+      <SafeArea>
+        <SearchContainer>
+          <StyledSearchbar
+            placeholder="Search for restaurants"
+            value={searchQuery}
+            onChangeText={onSearchChange}
+          />
+        </SearchContainer>
+        <ActivityIndicator size="large" color="red" />
+      </SafeArea>
+    )
   }
 
   return (
@@ -55,8 +78,8 @@ const RestaurantScreen = () => {
 
       {/* Lista med restauranger */}
       <FlatList
-        data={filteredData} // Använd den filtrerade datan
-        keyExtractor={(item) => item.name}
+        data={filteredData}
+        keyExtractor={(item) => item.place_id || item.name}
         renderItem={({ item }) => (
           <Spacer position="bottom" size="large">
             <RestaurantInfo restaurant={item} />
@@ -68,18 +91,3 @@ const RestaurantScreen = () => {
   )
 }
 export default RestaurantScreen
-
-// import { FlatList } from 'react-native'
-// import { RestaurantInfo } from '../components/restaurant-info.component'
-// import { Spacer } from '../../../components/spacer/spacer.component'
-// import { restaurantsData } from '../../../utils/mock/restaurantsData'
-
-// export const RestaurantScreen = () => {
-//   return (
-//     <FlatList
-//       data={restaurantsData}
-//       keyExtractor={(item) => item.name}
-//       renderItem={({ item }) => <RestaurantInfo restaurant={item} />}
-//     />
-//   )
-// }

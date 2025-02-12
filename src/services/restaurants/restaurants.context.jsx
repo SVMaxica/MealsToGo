@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect, useMemo } from 'react'
+import { useState, createContext, useEffect, useMemo } from 'react'
 import { restaurantsRequest, restaurantsTransform } from './restaurants.service'
 
 export const RestaurantsContext = createContext()
@@ -10,26 +10,35 @@ export const RestaurantsContextProvider = ({ children }) => {
 
   const retrieveRestaurants = () => {
     setIsLoading(true)
+
     setTimeout(() => {
       restaurantsRequest()
         .then(restaurantsTransform)
         .then((results) => {
-          setRestaurants(results)
+          // ✅ Kontrollera om datan faktiskt förändrats innan vi uppdaterar state
+          if (JSON.stringify(restaurants) !== JSON.stringify(results)) {
+            setRestaurants(results)
+          }
+
           setIsLoading(false)
         })
         .catch((err) => {
           setError(err)
           setIsLoading(false)
         })
-    }, 2000) // 🔹 Simulerar API-fördröjning
+    }, 2000)
   }
 
   useEffect(() => {
     retrieveRestaurants()
   }, [])
 
+  const memoizedRestaurants = useMemo(() => restaurants, [restaurants]) // ✅ Förhindra onödiga om-renderingar
+
   return (
-    <RestaurantsContext.Provider value={{ restaurants, isLoading, error }}>
+    <RestaurantsContext.Provider
+      value={{ restaurants: memoizedRestaurants, isLoading, error }}
+    >
       {children}
     </RestaurantsContext.Provider>
   )

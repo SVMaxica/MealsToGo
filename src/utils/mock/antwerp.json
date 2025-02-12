@@ -3,6 +3,55 @@
   "next_page_token": "some token",
   "results": [
     {
+      "business_status": "CLOSED_TEMPORARILY",
+      "geometry": {
+        "location": {
+          "lat": 41.880,
+          "lng": -87.620
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 41.881,
+            "lng": -87.619
+          },
+          "southwest": {
+            "lat": 41.879,
+            "lng": -87.621
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Temporarily Closed Restaurant",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2640,
+          "html_attributions": [""],
+          "photo_reference": "",
+          "width": 3960
+        }
+      ],
+      "place_id": "closed-restaurant-id",
+      "plus_code": {
+        "compound_code": "",
+        "global_code": ""
+      },
+      "price_level": 2,
+      "rating": 4.5,
+      "reference": "",
+      "scope": "",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 150,
+      "vicinity": "Closed Street 123, Chicago"
+    },    
+    {
       "business_status": "OPERATIONAL",
       "geometry": {
         "location": {

@@ -3,7 +3,7 @@
   "next_page_token": "some token",
   "results": [
     {
-      "business_status": "OPERATIONAL",
+      "business_status": "CLOSED_TEMPORARILY",
       "geometry": {
         "location": {
           "lat": 37.77361,
@@ -23,7 +23,7 @@
       "ix": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Zuni Café",
       "opening_hours": {
-        "open_now": true
+        "open_now": false
       },
       "photos": [
         {

@@ -1,9 +1,25 @@
-import { View, Image } from 'react-native'
+import React from 'react'
+import { View } from 'react-native'
 import { Card } from '../../../components/card/card.component'
 import { Text } from '../../../components/typography/text.component'
 import { Spacer } from '../../../components/spacer/spacer.component'
 import { StarIcon } from '../../../components/star.component'
 import defaultImage from '../../../../assets/images/restaurant-placeholder.jpg'
+import styled from 'styled-components/native'
+
+// ✅ Använd `styled.Image`
+const RestaurantImage = styled.Image`
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+`
+
+// ✅ Öppet/stängt status
+const StatusBadge = styled.View`
+  background-color: ${(props) => (props.isOpenNow ? 'green' : 'red')};
+  padding: 5px 10px;
+  border-radius: 5px;
+`
 
 export const RestaurantInfo = ({ restaurant }) => {
   const {
@@ -11,19 +27,19 @@ export const RestaurantInfo = ({ restaurant }) => {
     photos = [],
     address = 'Adress saknas',
     rating = 4,
-    isOpenNow = true,
+    isOpenNow = false,
     isClosedTemporarily = false,
   } = restaurant
 
-  const imageSource = photos.length > 0 ? photos[0] : defaultImage
   const ratingArray = Array.from({ length: Math.floor(rating) })
 
   return (
     <Card>
-      <Image
-        source={imageSource}
-        style={{ width: '100%', height: 150, borderRadius: 10 }}
-      />
+      <View style={{ position: 'relative' }}>
+        <RestaurantImage
+          source={{ uri: photos.length ? photos[0] : defaultImage }}
+        />
+      </View>
 
       <Spacer variant="large" />
       <Text variant="title">{name}</Text>
@@ -43,24 +59,16 @@ export const RestaurantInfo = ({ restaurant }) => {
             <StarIcon key={index} width={20} height={20} />
           ))}
         </View>
-        {/* Temporärt stängd text */}
         {isClosedTemporarily && <Text variant="error">CLOSED TEMPORARILY</Text>}
-
-        <View
-          style={{
-            backgroundColor: isOpenNow ? 'green' : 'red',
-            paddingHorizontal: 10,
-            paddingVertical: 5,
-            borderRadius: 5,
-          }}
-        >
+        {/* 🛑 Färgkodad öppet/stängt-status */}
+        <StatusBadge isOpenNow={isOpenNow}>
           <Text
             variant="caption"
             style={{ color: 'white', fontWeight: 'bold' }}
           >
             {isOpenNow ? 'Open' : 'Closed'}
           </Text>
-        </View>
+        </StatusBadge>
       </View>
 
       <Spacer variant="small" />
