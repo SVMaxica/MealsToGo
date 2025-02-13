@@ -5,6 +5,7 @@ import RestaurantScreen from '../src/features/restaurants/screens/restaurant.scr
 import MapScreen from '../src/features/restaurants/screens/map.screen'
 import SettingsScreen from '../src/features/restaurants/screens/settings.screen'
 import { RestaurantsContextProvider } from '../src/services/restaurants/restaurants.context'
+import { LocationContextProvider } from '../src/services/location/location.context'
 import { Ionicons } from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator()
@@ -32,13 +33,15 @@ const screenOptions = ({ route }) => ({
 export default function RootLayout() {
   return (
     <ThemeProvider theme={theme}>
-      <RestaurantsContextProvider>
-        <Tab.Navigator screenOptions={screenOptions}>
-          <Tab.Screen name="Restaurants" component={RestaurantScreen} />
-          <Tab.Screen name="Map" component={MapScreen} />
-          <Tab.Screen name="Settings" component={SettingsScreen} />
-        </Tab.Navigator>
-      </RestaurantsContextProvider>
+      <LocationContextProvider>
+        <RestaurantsContextProvider>
+          <Tab.Navigator screenOptions={screenOptions}>
+            <Tab.Screen name="Restaurants" component={RestaurantScreen} />
+            <Tab.Screen name="Map" component={MapScreen} />
+            <Tab.Screen name="Settings" component={SettingsScreen} />
+          </Tab.Navigator>
+        </RestaurantsContextProvider>
+      </LocationContextProvider>
     </ThemeProvider>
   )
 }
