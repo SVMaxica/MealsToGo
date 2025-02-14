@@ -48,13 +48,13 @@
 // export default RestaurantScreen
 
 import React, { useContext } from 'react'
-import { FlatList, ActivityIndicator } from 'react-native'
-import { Colors } from 'react-native-paper'
-import { Search } from '../../../components/search.component'
+import { FlatList, ActivityIndicator, TouchableOpacity } from 'react-native'
+//import { Colors } from 'react-native-paper'
+import { Search } from '../components/search.component'
 import styled from 'styled-components/native'
-
+import { RestaurantDetailScreen } from '../screens/restaurant-detail.screen'
 import { Spacer } from '../../../components/spacer/spacer.component'
-import { SafeArea } from '../../../components/safe-area.component'
+import { SafeArea } from '../../../components/utility/safe-area.component'
 import { RestaurantsContext } from '../../../services/restaurants/restaurants.context'
 import { RestaurantInfo } from '../components/restaurant-info.component'
 
@@ -73,8 +73,8 @@ const LoadingContainer = styled.View`
   left: 50%;
 `
 
-const RestaurantScreen = () => {
-  const { restaurants, error, isLoading } = useContext(RestaurantsContext) // ✅ Hämta restauranger från context
+export const RestaurantScreen = ({ navigation }) => {
+  const { restaurants, isLoading } = useContext(RestaurantsContext) // ✅ Hämta restauranger från context
 
   return (
     <SafeArea>
@@ -90,9 +90,17 @@ const RestaurantScreen = () => {
         data={restaurants}
         renderItem={({ item }) => {
           return (
-            <Spacer position="bottom" size="large">
-              <RestaurantInfo restaurant={item} />
-            </Spacer>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('RestaurantDetail', {
+                  restaurant: item,
+                })
+              }
+            >
+              <Spacer position="bottom" size="large">
+                <RestaurantInfo restaurant={item} />
+              </Spacer>
+            </TouchableOpacity>
           )
         }}
         keyExtractor={(item) => item.name}

@@ -11,7 +11,7 @@ export const RestaurantCard = styled(Card)`
 `
 
 export const RestaurantCardCover = styled(Card.Cover)`
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[0]};
   background-color: ${(props) => props.theme.colors.bg.primary};
 `
 
@@ -21,12 +21,15 @@ export const Address = styled.Text`
 `
 
 export const Info = styled.View`
-  padding: ${(props) => props.theme.space[3]};
+  //padding: ${(props) => props.theme.space[3]};
+  padding-left: ${(props) => props.theme.space[3]};
+  padding-right: ${(props) => props.theme.space[3]};
+  padding-bottom: ${(props) => props.theme.space[3]};
 `
 
 export const Rating = styled.View`
   flex-direction: row;
-  padding-top: ${(props) => props.theme.spacing[3]};
+  padding-top: ${(props) => props.theme.space[2]};
   padding-bottom: ${(props) => props.theme.space[2]};
 `
 
