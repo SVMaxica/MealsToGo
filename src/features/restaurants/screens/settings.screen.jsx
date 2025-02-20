@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text } from 'react-native'
 import styled from 'styled-components/native'
+import { AccountNavigator } from '../../../infrastructure/navigation/account.navigator'
 
 const SafeArea = styled.SafeAreaView`
   flex: 1;
@@ -10,11 +11,7 @@ const SafeArea = styled.SafeAreaView`
 `
 
 const SettingsScreen = () => {
-  return (
-    <SafeArea>
-      <Text>Settings Screen</Text>
-    </SafeArea>
-  )
+  return <AccountNavigator />
 }
 
 export default SettingsScreen

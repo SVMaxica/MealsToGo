@@ -2,6 +2,14 @@
   "expo": {
     "name": "MealsToGo",
     "slug": "MealsToGo",
+    "extra": {
+      "API_KEY": "AIzaSyCjGT5XRg9OOiDy8bzzjW29t0kdJXKIAi8",
+      "AUTH_DOMAIN": "mealstogo-352e3.firebaseapp.com",
+      "PROJECT_ID": "mealstogo-352e3",
+      "STORAGE_BUCKET": "mealstogo-352e3.firebasestorage.app",
+      "MESSAGING_SENDER_ID": "15931187429",
+      "APP_ID": "1:15931187429:web:e7fb24c714e60b74dbb40c"
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
