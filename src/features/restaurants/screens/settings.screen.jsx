@@ -1,17 +1,15 @@
-import React from 'react'
-import { Text } from 'react-native'
-import styled from 'styled-components/native'
-import { AccountNavigator } from '../../../infrastructure/navigation/account.navigator'
-
-const SafeArea = styled.SafeAreaView`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`
+import React, { useContext } from 'react'
+import { Text, Button } from 'react-native'
+import { AuthenticationContext } from '../../../services/authentication/authentication.context'
+import { SafeArea } from '../../../components/utility/safe-area.component'
 
 const SettingsScreen = () => {
-  return <AccountNavigator />
+  const { onLogout } = useContext(AuthenticationContext)
+  return (
+    <SafeArea>
+      <Text>Settings</Text>
+      <Button title="logout" onPress={() => onLogout()} />
+    </SafeArea>
+  )
 }
-
 export default SettingsScreen
