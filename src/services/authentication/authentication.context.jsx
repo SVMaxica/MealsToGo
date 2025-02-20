@@ -1,11 +1,10 @@
-import React, { useState, createContext, useRef } from 'react'
+import React, { useState, createContext, useEffect, useRef } from 'react'
 import {
   signOut,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   getAuth,
 } from 'firebase/auth'
-
 import { loginRequest } from './authentication.service'
 
 export const AuthenticationContext = createContext()

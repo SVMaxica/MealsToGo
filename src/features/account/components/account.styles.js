@@ -46,3 +46,12 @@ export const AccountCover = styled.View`
   height: 100%;
   background-color: rgba(255, 255, 255, 0.3);
 `
+
+export const AnimationWrapper = styled.View`
+/* flex:1; */
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  top: 30px;
+  padding: ${(props) => props.theme.space[2]};
+`
