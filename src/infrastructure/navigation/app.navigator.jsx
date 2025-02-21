@@ -5,13 +5,16 @@ import { RestaurantsNavigator } from './restaurants.navigator'
 //import { CheckoutNavigator } from "./checkout.navigator";
 //import { CartContextProvider } from "../../services/cart/cart.context";
 import { MapScreen } from '../../features/map/screens/map.screen'
-import SettingsScreen from '../../features/restaurants/screens/settings.screen'
+import { MapNavigator } from './map.navigator'
+import { SettingsNavigator } from './settings.navigator'
 import { RestaurantsContextProvider } from '../../services/restaurants/restaurants.context'
 import { LocationContextProvider } from '../../services/location/location.context'
 import { FavouritesContextProvider } from '../../services/favourites/favourites.context'
+
 //import { colors } from "../../infrastructure/theme/colors"
 
 const Tab = createBottomTabNavigator()
+//const Stack = createStackNavigator()
 
 // Funktion för att sätta ikoner
 const screenOptions = ({ route }) => ({
@@ -39,8 +42,8 @@ export const AppNavigator = () => (
       <RestaurantsContextProvider>
         <Tab.Navigator screenOptions={screenOptions}>
           <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-          <Tab.Screen name="Map" component={MapScreen} />
-          <Tab.Screen name="Settings" component={SettingsScreen} />
+          <Tab.Screen name="Map" component={MapNavigator} />
+          <Tab.Screen name="Settings" component={SettingsNavigator} />
         </Tab.Navigator>
       </RestaurantsContextProvider>
     </LocationContextProvider>

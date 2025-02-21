@@ -63,3 +63,9 @@ export const MapScreen = ({ navigation }) => {
     </>
   )
 }
+
+// onPress={() =>
+//   navigation.navigate('RestaurantDetail', {
+//     restaurant: item,
+//   })
+// }
