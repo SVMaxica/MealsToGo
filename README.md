@@ -1,50 +1,85 @@
-# Welcome to your Expo app 👋
+MealsToGo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+📌 Overview
 
-## Get started
+MealsToGo is a mobile-friendly restaurant discovery app built with React Native and Expo. Users can browse restaurants, search by location or name, and save their favorites. The app integrates Google Maps API for location-based searches and provides a smooth, responsive experience with animations.
 
-1. Install dependencies
+🎥 Demo
 
-   ```bash
-   npm install
-   ```
+Watch the video demo here,
+https://res.cloudinary.com/dkhix3l9n/video/upload/v1740217001/MealsToGo2_q6lm5d.mp4
 
-2. Start the app
+🚀 Features
 
-   ```bash
-    npx expo start
-   ```
+🗺️ Google Maps Integration - View restaurant locations on an interactive map.
 
-In the output, you'll find options to open the app in a
+🔍 Search Functionality - Search restaurants by name or location.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+⭐ Favorites System - Save favorite restaurants for quick access.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+🎨 Smooth Animations - Enhanced user experience with React Native animations.
 
-## Get a fresh project
+🛠️ Tech Stack
 
-When you're ready, run:
+React Native
 
-```bash
-npm run reset-project
-```
+Expo
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Styled Components
 
-## Learn more
+Lottie animation
 
-To learn more about developing your project with Expo, look at the following resources:
+Google Maps API ( used a copy of the google maps api in a json file to similate the api because my google maps api has expired)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Firebase (for authentication and data storage)
 
-## Join the community
+📦 Installation
 
-Join our community of developers creating universal apps.
+Clone the repository:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+git clone https://github.com/SVMaxica/MealsToGo.git
+cd MealsToGo
+
+Install dependencies:
+
+npm install
+
+Start the Expo development server:
+
+npm start
+
+Run on an emulator or physical device:
+
+npm run android # for Android
+npm run ios # for iOS
+
+🔍 Folder Structure
+
+.
+├── src
+│ ├── components # Reusable UI components
+│ ├── features # Business logic & screens
+│ ├── infrastructure # Theme & config settings
+│ ├── utils # Utility functions
+│ ├── assets # Images & icons
+│ ├── navigation # App navigation setup
+│ └── services # API and Firebase connections
+└── App.js # Main entry point
+
+🔧 Scripts
+
+npm start - Start the development server
+
+npm run android - Run on Android emulator/device
+
+npm run ios - Run on iOS simulator/device
+
+npm run test - Run Jest tests
+
+npm run lint - Check code formatting
+
+🔗 Links
+
+GitHub Repo: https://github.com/SVMaxica/MealsToGo
+
+Video Demo: https://res.cloudinary.com/dkhix3l9n/video/upload/v1740217001/MealsToGo2_q6lm5d.mp4
